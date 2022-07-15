@@ -1,6 +1,6 @@
 function Todo(props) {
   function deleteHandler() {
-    console.log("deleted " + props.text)
+    
   }
 
   return (
