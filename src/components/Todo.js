@@ -9,14 +9,18 @@ function Todo(props) {
     setModalIsOpen(true);
   }
 
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
   return (
     <div className="card">
       <h2>{props.text}</h2>
       <div className="actions">
         <button className="btn" onClick={deleteTodo}>Delete</button>
       </div>
-      { modelIsOpen ? <Modal/> : null}
-      { modelIsOpen ? <Backdrop/> : null}
+      { modelIsOpen ? <Modal onCancel={closeModal} onConfirm={closeModal} /> : null}
+      { modelIsOpen ? <Backdrop onCancel={closeModal}/> : null}
     </div>
   );
 }
