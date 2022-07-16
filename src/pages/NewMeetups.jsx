@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
 function NewMeetupsPage() {
+  const navigate = useNavigate();
+
   function addMeetup(meetupData) {
     //use to send HTTP request
     fetch(
@@ -12,7 +16,9 @@ function NewMeetupsPage() {
           'Content-Type': 'application/json'
         }
       }
-    ); 
+    ).then(() => {
+      navigate('/'); // goes to '/' after sending HTTP req
+    }); 
   }
 
   return (
