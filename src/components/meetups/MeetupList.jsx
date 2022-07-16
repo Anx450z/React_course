@@ -1,21 +1,21 @@
-import classes from './MeetupItems.module.css'
+import MeetupItem from "./MeetupsItem";
+import classes from "./MeetupList.module.css";
 
-function MeetupItem(props) {
+function MeetupList(props) {
   return (
-    <li className={classes.item}>
-      <div className={classes.item}>
-      <img src={props.image} alt={props.title} />
-      </div>
-      <div className={classes.content}>
-        <h3>{props.title}</h3>
-        <address>{props.address}</address>
-        <p>{props.description}</p>
-      </div>
-      <div>
-        <button className={classes.actions}>To Favorites</button>
-      </div>
-    </li>
+    <ul className={classes.list}>
+      {props.meetups.map((meetup) => (
+        <MeetupItem 
+          key={meetup.id} 
+          id={meetup.id} 
+          image={meetup.image}
+          title={meetup.title} 
+          address={meetup.address}
+          description={meetup.description}
+        />
+      ))}
+    </ul>
   );
 }
 
-export default MeetupItem;
+export default MeetupList;
